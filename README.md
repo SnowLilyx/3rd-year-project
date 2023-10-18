@@ -16,3 +16,5 @@ code/ui.js - Short file that initiates the UI in the correct starting setup usin
 code/linalg.js - Various functions implementing the required linear algebra functions
 
 code/main.js - The main JavaScript file, sets up the three.js interface and implements the mathematics for interpolating the cube on arbitrary linear transformations.
+
+A large portion of the work of this project was in working out the mathematics for interpolating linear transformations in a visually acceptable way as I could not find any methods in the literature.
