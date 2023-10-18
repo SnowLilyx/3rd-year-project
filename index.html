@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Project</title>
+<link href="/code/style.css" rel="stylesheet">
+<script src="/code/linalg.js?version=8"></script>
+<script src="/code/uiutils.js"></script>
+<script type="module" src="/code/main.js?version=7"></script>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div class="ui">
+  <div class="empty">
+    <div class="box" draggable="true">
+      <div class="lbrac">(</div>
+      <div class="nums">
+        <table>
+          <tr><th>0.00</th><th>1.00</th><th>0.00</th></tr>
+          <tr><th>-1.00</th><th>0.00</th><th>0.00</th></tr>
+          <tr><th>0.00</th><th>0.00</th><th>1.00</th></tr>
+        </table>
+      </div>
+      <div class="rbrac">)</div>
+    </div>
+  </div>
+  <div class="empty"></div>
+  <div class="empty"></div>
+  <div class="empty"></div>
+  <div class="empty"></div>
+  <div class="empty"></div>
+  <div class="empty"></div>
+  <div class="empty"></div>
+  <div id="slidercontainer">
+    <input type="range" min="0" max="1000" value="1000" style="width: 160px;" class="slider" id="slider1">
+  </div>
+  <button type="button" onclick="showAddNewForm()">Add New Matrix</button>
+  <button type="button" onclick="showAddScaleForm()">Add Scaling Matrix</button>
+  <button type="button" onclick="showAddReflectForm()">Add Reflection Matrix</button>
+  <button type="button" onclick="showAddRotateForm()">Add Rotation Matrix</button>
+  <button type="button" onclick="mergeRightMatrices()">Multiply Right Matrices</button>
+  <button type="button" onclick="deleteRightMatrix()">Delete Right Matrix</button>
+</div>
+<div id="popup"></div>
+<script src="/code/ui.js"></script>
+</body>
+</html>
