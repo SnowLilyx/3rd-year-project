@@ -1,86 +1,12 @@
-three.js
-========
+# 3rd-year-project
+A copy of the code used in my 3rd year project, a web app to help teach A-level students about 3D linear transformations
 
-[![NPM Package][npm]][npm-url]
-[![Build Size][build-size]][build-size-url]
-[![NPM Downloads][npm-downloads]][npmtrends-url]
-[![Language Grade][lgtm]][lgtm-url]
+NOTE: You will need to host the page on a local server running in the main directory for it to work properly, just clicking the HTML file will not work.
+NOTE: The entire three.js code is also in the directory, the files that are my own work are detailed below.
 
-#### JavaScript 3D library ####
-
-The aim of the project is to create an easy to use, lightweight, cross-browser, general purpose 3D library. The current builds only include a WebGL renderer but WebGPU (experimental), SVG and CSS3D renderers are also available in the examples.
-
-[Examples](https://threejs.org/examples/) &mdash;
-[Documentation](https://threejs.org/docs/) &mdash;
-[Wiki](https://github.com/mrdoob/three.js/wiki) &mdash;
-[Migrating](https://github.com/mrdoob/three.js/wiki/Migration-Guide) &mdash;
-[Questions](http://stackoverflow.com/questions/tagged/three.js) &mdash;
-[Forum](https://discourse.threejs.org/) &mdash;
-[Slack](https://join.slack.com/t/threejs/shared_invite/zt-rnuegz5e-FQpc6YboDVW~5idlp7GfDw) &mdash;
-[Discord](https://discordapp.com/invite/HF4UdyF)
-
-### Usage ###
-
-This code creates a scene, a camera, and a geometric cube, and it adds the cube to the scene. It then creates a `WebGL` renderer for the scene and camera, and it adds that viewport to the `document.body` element. Finally, it animates the cube within the scene for the camera.
-
-```javascript
-import * as THREE from './js/three.module.js';
-
-let camera, scene, renderer;
-let geometry, material, mesh;
-
-init();
-
-function init() {
-
-	camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 10 );
-	camera.position.z = 1;
-
-	scene = new THREE.Scene();
-
-	geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
-	material = new THREE.MeshNormalMaterial();
-
-	mesh = new THREE.Mesh( geometry, material );
-	scene.add( mesh );
-
-	renderer = new THREE.WebGLRenderer( { antialias: true } );
-	renderer.setSize( window.innerWidth, window.innerHeight );
-	renderer.setAnimationLoop( animation );
-	document.body.appendChild( renderer.domElement );
-
-}
-
-function animation( time ) {
-
-	mesh.rotation.x = time / 2000;
-	mesh.rotation.y = time / 1000;
-
-	renderer.render( scene, camera );
-
-}
-```
-
-If everything went well, you should see [this](https://jsfiddle.net/vy29n6aj/).
-
-### Cloning this repository ###
-
-Cloning the repo with all its history results in a ~2 GB download. If you don't need the whole history you can use the `depth` parameter to significantly reduce download size.
-
-```sh
-git clone --depth=1 https://github.com/mrdoob/three.js.git
-```
-
-### Change log ###
-
-[Releases](https://github.com/mrdoob/three.js/releases)
-
-
-[npm]: https://img.shields.io/npm/v/three
-[npm-url]: https://www.npmjs.com/package/three
-[build-size]: https://badgen.net/bundlephobia/minzip/three
-[build-size-url]: https://bundlephobia.com/result?p=three
-[npm-downloads]: https://img.shields.io/npm/dw/three
-[npmtrends-url]: https://www.npmtrends.com/three
-[lgtm]: https://img.shields.io/lgtm/alerts/github/mrdoob/three.js
-[lgtm-url]: https://lgtm.com/projects/g/mrdoob/three.js/
+index.html - The HTML file for the webpage, including all the buttons for adding, merging and deleting matrices and the display of the current matrices
+code/style.ccs - Short stylesheet to format the webpage
+code/uiutils.js - Various functions for dealing with adding, merging and deleting various matrices, allowing the drag and drop of them in the UI and the various forms to create them.
+code/ui.js - Short file that initiates the UI in the correct starting setup using the functions from uiutils.js
+code/linalg.js - Various functions implementing the required linear algebra functions
+code/main.js - The main JavaScript file, sets up the three.js interface and implements the mathematics for interpolating the cube on arbitrary linear transformations.
