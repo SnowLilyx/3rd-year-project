@@ -2,6 +2,7 @@
 A copy of the code used in my 3rd year project, a web app to help teach A-level students about 3D linear transformations
 
 NOTE: You will need to host the page on a local server running in the main directory for it to work properly, just clicking the HTML file will not work.
+
 NOTE: The entire three.js code is also in the directory, the files that are my own work are detailed below.
 
 index.html - The HTML file for the webpage, including all the buttons for adding, merging and deleting matrices and the display of the current matrices
